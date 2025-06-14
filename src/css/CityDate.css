@@ -1,0 +1,12 @@
+.cityDate{
+  color: rgb(128, 127, 127);
+}
+
+.cityDate h2{
+  color: #001f3d;
+  margin-bottom: -7px;
+}
+
+.cityDate p{
+  line-height: 8px;
+}

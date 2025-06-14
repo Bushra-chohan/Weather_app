@@ -1,0 +1,24 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.app{
+  background-color: lightblue;
+  height: 550px;
+  width: 380px;
+  border:1px solid transparent ;
+  border-radius: 15px;
+  background-image:linear-gradient(rgba(133, 132, 132, 0.5), rgba(130, 126, 126, 0.5)), url('./assets/background-image.jpg') ;
+  background-size: cover; 
+  
+}
+
+.header{
+  color: #001f3d;
+  font-size: 30px;
+  margin-top: 50px;
+}
