@@ -1,40 +1,40 @@
 import {React, useEffect, useState} from 'react'
 import '../css/CityDate.css'
 
-function CityDate({city, country}) {
+function CityDate({city, country, timezoneOffset}) {
 
-  const [time, setTime] = useState(()=>{
-    const now = new Date();
-    return now.toLocaleTimeString([], {
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true
-    });
-  })
+  const [time, setTime] = useState('');
+  const [date, setDate] = useState('');
 
-  const [date, setDate] = useState(() => {
-    const now = new Date();
-    const day = now.toLocaleDateString('en-US', { weekday: 'long' });
-    const dayNum = now.getDate();
-    const month = now.toLocaleDateString('en-US', { month: 'long' });
-    const year = now.getFullYear();
-    return `${day} ${dayNum} ${month} ${year}`;
-  });
-
+  
   useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date()
-      setTime(now.toLocaleTimeString([], {
+    const updateLocalTime = () => {
+      const nowUTC = new Date().getTime() + new Date().getTimezoneOffset() * 60000;
+      const localTime = new Date(nowUTC + timezoneOffset * 1000);
+
+      const formattedTime = localTime.toLocaleTimeString([], {
         hour: '2-digit',
         minute: '2-digit',
-        hour12: true
-      }))
-      
-    },1000)
+        hour12: true,
+    });
 
-    return () => clearInterval(interval)
-  
-  }, [])
+    const formattedDate = localTime.toLocaleDateString('en-US', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      });
+
+      setTime(formattedTime);
+      setDate(formattedDate);
+    }
+
+    updateLocalTime();
+    const interval = setInterval(updateLocalTime, 1000);
+
+    return () => clearInterval(interval);
+  }, [timezoneOffset]);
+
   
   
   return (
