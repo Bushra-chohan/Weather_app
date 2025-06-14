@@ -9,8 +9,12 @@ function CityDate({city, country, timezoneOffset}) {
   
   useEffect(() => {
     const updateLocalTime = () => {
-      const nowUTC = new Date().getTime() + new Date().getTimezoneOffset() * 60000;
-      const localTime = new Date(nowUTC + timezoneOffset * 1000);
+
+      // calculates the current UTC time in milliseconds.
+      const nowUTC = new Date().getTime() + new Date().getTimezoneOffset() * 60000; //timezoneoffset *60000 to convert minutes to milliseconds
+
+      // adding the target city’s timezone offset to UTC time.
+      const localTime = new Date(nowUTC + timezoneOffset * 1000); // timezoneoffset *1000 to convert seconds to milliseconds
 
       const formattedTime = localTime.toLocaleTimeString([], {
         hour: '2-digit',

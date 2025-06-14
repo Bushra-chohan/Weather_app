@@ -1,4 +1,4 @@
-const API_KEY = '40ea44ab609b306df707680c8a799992';
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
 export async function getForecast(city){
