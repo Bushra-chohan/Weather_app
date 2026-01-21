@@ -42,7 +42,7 @@ src/
 │   ├── WeatherCard.jsx      # Main weather display
 │   ├── WeatherDetails.jsx   # Forecast details
 │   ├── CityDate.jsx         # City name & local time
-    ├── ConditionItem.jsx    # Adjust headings
+│   ├── ConditionItem.jsx    # Adjust headings
 │   └── WeatherImage.jsx     # Weather condition icons
 ├── assets/
 ├── services/
