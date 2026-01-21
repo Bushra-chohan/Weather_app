@@ -9,7 +9,6 @@ A React-based weather application that provides real-time weather forecasts for 
 ## Features
 
 - 🔍 **City Search** - Search weather for any location globally
-- 🌡️ **5-Day Forecast** - Detailed weather predictions
 - 🕐 **Local Time** - Displays city's local time using timezone offset
 - 🌍 **Country Display** - Shows city name and country
 - ⚡ **Real-time Data** - Current conditions via OpenWeatherMap API
